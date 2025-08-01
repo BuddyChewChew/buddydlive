@@ -16,7 +16,7 @@ def parse_option(opt):
             "referrer": "Referer",   # Correct: single 'r'
             "origin": "Origin"
         }
-        key = header_map.get(key, key)
+        key = header_map.get(key, m.group(1))  # <--- FIXED HERE!
         return (key, value)
     return (None, None)
 
