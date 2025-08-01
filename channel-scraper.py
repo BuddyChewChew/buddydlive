@@ -1,6 +1,7 @@
 import json
 import requests
 import re
+from datetime import datetime
 
 def parse_option(opt):
     """
@@ -13,10 +14,11 @@ def parse_option(opt):
         # Strict mapping for IPTV compatibility
         header_map = {
             "useragent": "User-Agent",
+            "user-agent": "User-Agent",
             "referrer": "Referer",   # Correct: single 'r'
             "origin": "Origin"
         }
-        key = header_map.get(key, m.group(1))  # <--- FIXED HERE!
+        key = header_map.get(key, m.group(1))  # Use original case if not mapped
         return (key, value)
     return (None, None)
 
@@ -41,7 +43,9 @@ def get_headers(global_opts, channel_opts):
 
 def generate_m3u(channels, global_options, output_file, epg_url):
     with open(output_file, 'w', encoding='utf-8') as f:
+        # Force update: add a timestamp comment to guarantee file changes every run
         f.write(f'#EXTM3U url-tvg="{epg_url}"\n')
+        f.write(f'# Updated: {datetime.utcnow().isoformat()}Z\n')
         for name, info in channels.items():
             group = info.get('group_title', '')
             tvg_id = info.get('tvg_id', '')
