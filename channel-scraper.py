@@ -10,10 +10,10 @@ def parse_option(opt):
     if m:
         key = m.group(1).lower()
         value = m.group(2)
-        # Map to standard HTTP header capitalization
+        # Strict mapping for IPTV compatibility
         header_map = {
             "useragent": "User-Agent",
-            "referrer": "Referer",
+            "referrer": "Referer",   # Correct: single 'r'
             "origin": "Origin"
         }
         key = header_map.get(key, key)
@@ -50,10 +50,8 @@ def generate_m3u(channels, global_options, output_file, epg_url):
             options = info.get('options', None)
             if not stream_url:
                 continue
-            # Compose the EXTINF line
             extinf = (f'#EXTINF:-1 group-title="{group}" tvg-id="{tvg_id}" '
                       f'tvg-logo="{tvg_logo}",{name}\n')
-            # Compose the stream URL line with headers
             headers = get_headers(global_options, options)
             stream = f"{stream_url}{headers}\n"
             f.write(extinf)
