@@ -53,13 +53,3 @@ if __name__ == "__main__":
     epg_url = "https://raw.githubusercontent.com/nightah/daddylive/refs/heads/main/epgs/daddylive-channels-epg.xml"  # Replace with your EPG XMLTV url
     channels, global_options = load_channels_from_url(url)
     generate_m3u(channels, global_options, "daddylive-channels.m3u", epg_url)
-            if not stream_url:
-                continue
-            f.write(f'#EXTINF:-1 tvg-id="{tvg_id}" tvg-name="{name}" tvg-logo="{tvg_logo}" group-title="{group}",{name}\n')
-            f.write(f"{stream_url}\n")
-
-if __name__ == "__main__":
-    url = "https://raw.githubusercontent.com/nightah/daddylive/refs/heads/main/daddylive-channels-data.json"
-    channels = load_channels_from_url(url)
-    epg_url = "https://raw.githubusercontent.com/nightah/daddylive/refs/heads/main/epgs/daddylive-channels-epg.xml"  # <-- Replace with your actual EPG XMLTV url
-    generate_m3u(channels, "daddylive-channels.m3u", epg_url)
