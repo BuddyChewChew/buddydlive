@@ -11,7 +11,7 @@ def load_channels_from_url(json_url):
 def generate_m3u(channels, output_file, epg_url=None):
     # Always write the EPG url-tvg to the header, even if epg_url is None (can be empty string)
     if epg_url is None:
-        epg_url = "https://example.com/your-epg.xml"  # <-- Replace with your actual EPG XMLTV url
+        epg_url = "https://github.com/nightah/daddylive/raw/refs/heads/main/epgs/daddylive-channels-epg.xml.gz"  # <-- Replace with your actual EPG XMLTV url
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(f'#EXTM3U url-tvg="{epg_url}"\n')
         for name, info in channels.items():
@@ -27,5 +27,5 @@ def generate_m3u(channels, output_file, epg_url=None):
 if __name__ == "__main__":
     url = "https://raw.githubusercontent.com/nightah/daddylive/refs/heads/main/daddylive-channels-data.json"
     channels = load_channels_from_url(url)
-    epg_url = "https://example.com/your-epg.xml"  # <-- Replace with your actual EPG XMLTV url
+    epg_url = "https://github.com/nightah/daddylive/raw/refs/heads/main/epgs/daddylive-channels-epg.xml.gz"  # <-- Replace with your actual EPG XMLTV url
     generate_m3u(channels, "daddylive-channels.m3u", epg_url)
