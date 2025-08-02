@@ -1,5 +1,5 @@
 #EXTM3U url-tvg="https://raw.githubusercontent.com/nightah/daddylive/refs/heads/main/epgs/daddylive-channels-epg.xml"
-# Updated: 2025-08-01T19:42:43.084235Z
+# Updated: 2025-08-02T01:03:00.354461Z
 #EXTINF:-1 group-title="SPAIN" tvg-id="M+.Vamos.es" tvg-logo="https://raw.githubusercontent.com/nightah/daddylive/refs/heads/main/logos/vamos.png",#Vamos Spain
 https://windnew.newkso.ru/wind/premium521/mono.m3u8|Origin=https://fnjplay.xyz|Referer=https://fnjplay.xyz/|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="ITALY" tvg-id="20(Italian).it" tvg-logo="https://raw.githubusercontent.com/nightah/daddylive/refs/heads/main/logos/20mediaset.png",20 Mediaset Italy
